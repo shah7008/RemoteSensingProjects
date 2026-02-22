@@ -5,7 +5,10 @@ import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
 import numpy as np
 import matplotlib.pyplot as plt
-from pytorch_models import KLSTM, BiLSTMAttention, ConvAutoencoder
+from K_LSTM_Model import KLSTM
+from BiLSTM_Attention_Model import BiLSTMAttention
+from Convolutional_Autoencoder import ConvAutoencoder
+
 
 
 class EarlyStopping:
@@ -92,6 +95,7 @@ class ColdChainPyTorchPipeline:
         model.to(self.device)
 
         history = {'train_loss': [], 'val_loss': [], 'val_rmse': []}
+        best_val_loss = float('inf')
 
         for epoch in range(epochs):
             # Training
