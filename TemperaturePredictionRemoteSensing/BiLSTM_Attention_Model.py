@@ -1,3 +1,6 @@
+import torch
+import torch.nn as nn
+
 class BiLSTMAttention(nn.Module):
     """
     Bidirectional LSTM with Attention mechanism
@@ -14,6 +17,8 @@ class BiLSTMAttention(nn.Module):
             bidirectional=True,
             dropout=dropout if num_layers > 1 else 0
         )
+
+        print("BiLSTMAttention called InIt...")
 
         # Attention mechanism (on concatenated forward+backward hidden states)
         self.attention = nn.Sequential(

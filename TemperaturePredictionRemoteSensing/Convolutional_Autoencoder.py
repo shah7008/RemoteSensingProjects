@@ -27,6 +27,7 @@ class ConvAutoencoder(nn.Module):
             nn.ReLU(),
             nn.AdaptiveMaxPool1d(1)  # Global max pooling
         )
+        print("ConvAutoencoder called InIt...")
 
         # The output of encoder will be (batch, 16, 1) -> flatten to (batch, 16)
         # Then project to encoding_dim

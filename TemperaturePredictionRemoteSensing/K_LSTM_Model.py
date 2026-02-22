@@ -1,3 +1,7 @@
+import torch
+import torch.nn as nn
+from Convolutional_Autoencoder import ConvAutoencoder
+
 class KLSTM(nn.Module):
     """
     K-LSTM: Pre-trained convolutional autoencoder + LSTM with attention
@@ -23,6 +27,8 @@ class KLSTM(nn.Module):
             batch_first=True,
             bidirectional=False
         )
+
+        print("KLSTM called InIt...")
 
         # Attention mechanism
         self.attention = nn.Sequential(
