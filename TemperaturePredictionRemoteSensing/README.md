@@ -6,7 +6,6 @@ A comprehensive deep learning workflow to predict and monitor internal temperatu
 
 ## 🚀 Features
 
-- **Synthetic Dataset Generation:** Realistically simulates thermal behaviour, time-of-day interactions, and remote-sensing vegetation overlays (`generate_dataset.py`).
 - **Deep Learning Architectures:**
   - **Convolutional Autoencoder:** Learns spatial/feature embeddings.
   - **K-LSTM:** Fuses autoencoder features with temporal tracking.
@@ -21,7 +20,6 @@ A comprehensive deep learning workflow to predict and monitor internal temperatu
 ## 📁 Project Structure
 
 ```text
-├── generate_dataset.py            # Generates the 'cold_chain_dataset.csv' (6000 samples)
 ├── run_demo.py                    # End-to-end pipeline: trains models & runs the live simulation
 ├── improve_and_evaluate.py        # Generates performance metrics (RMSE, MAE, R², MAPE) without retraining
 ├── folium_visualization.py        # Subsamples the dataset to build the 'cold_chain_map.html' dashboard
@@ -56,27 +54,21 @@ A comprehensive deep learning workflow to predict and monitor internal temperatu
 
 ## 💻 Usage Guide
 
-### 1. Generate the Dataset
-Create the baseline physical and remote-sensing datapoints. This will generate `cold_chain_dataset.csv`.
-```bash
-python generate_dataset.py
-```
-
-### 2. Train Models and Run Demo Simulation
+### 1. Train Models and Run Demo Simulation
 Trains all deep-learning models (Conv-AE, K-LSTM, BiLSTM-Attention) using the dataset. Once complete, it executes a live 20-step monitoring simulation outputting predictions and alerts.
 ```bash
 python run_demo.py
 ```
 *(This generates the `.pth` weight files and the `preprocessor.pkl`)*
 
-### 3. Visualise the Cold-Chain Route
+### 2. Visualise the Cold-Chain Route
 Generates an interactive dashboard to visually assess the geographical relationships between Land Surface Temperature, vegetation indices, and internal container temperature.
 ```bash
 python folium_visualization.py
 ```
 *(Open `cold_chain_map.html` in any modern web browser to view.)*
 
-### 4. Evaluate Model Performance
+### 3. Evaluate Model Performance
 Runs all pre-trained models (`.pth` files) aggressively against the test dataset to yield global performance benchmarks.
 ```bash
 python improve_and_evaluate.py
